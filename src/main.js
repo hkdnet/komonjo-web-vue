@@ -1,7 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
+const Channel = require('./components/Channel.vue');
 
 new Vue({
   el: 'body',
-  components: { App }
+  components: {
+    'app': App,
+    'channel': Channel
+  }
 })

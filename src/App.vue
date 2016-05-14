@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <h1>{{ msg }}</h1>
+    <channel-list></channel-list>
   </div>
 </template>
 
 <script>
+const ChannelList = require('./components/ChannelList.vue');
 export default {
   data () {
     return {
@@ -14,6 +16,9 @@ export default {
       // its initial state.
       msg: 'Hello Vue!'
     }
+  },
+  components: {
+    'channel-list': ChannelList
   }
 }
 </script>
