@@ -10,10 +10,15 @@
 
 <script>
 const Channel = require('./Channel.vue');
+let channels = ["hoge", "fuga", "piyo"];
+setTimeout(()=> {
+  channels.push("foo");
+  console.log("pushed");
+}, 3000);
 export default {
   data() {
     return {
-      channels: ["hoge", "fuga", "piyo"]
+      channels
     }
   },
   components: {
