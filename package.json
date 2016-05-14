@@ -4,9 +4,10 @@
   "author": "hkdnet <hkdnet@users.noreply.github.com>",
   "scripts": {
     "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",
-    "serve": "http-server -c 1 -a localhost",
+    "serve": "npm run api & http-server -c 1 -a localhost",
     "dev": "npm-run-all --parallel watchify serve",
-    "build": "cross-env NODE_ENV=production browserify src/main.js | uglifyjs -c warnings=false -m > dist/build.js"
+    "build": "cross-env NODE_ENV=production browserify src/main.js | uglifyjs -c warnings=false -m > dist/build.js",
+    "api": "export $(cat .env | grep -v ^# | xargs) && eval $(docker-machine env komonjo) && docker-compose up"
   },
   "dependencies": {
     "vue": "^1.0.0"
