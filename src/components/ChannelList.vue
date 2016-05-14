@@ -10,11 +10,11 @@
 
 <script>
 const Channel = require('./Channel.vue');
-let channels = ["hoge", "fuga", "piyo"];
-setTimeout(()=> {
-  channels.push("foo");
-  console.log("pushed");
-}, 3000);
+const KomonjoClient = require("../KomonjoClient.js");
+let client = new KomonjoClient("http://192.168.99.100:8000/api");
+let channels = [];
+client.getChannels()
+  .then(e => e.forEach(c => channels.push(c)));
 export default {
   data() {
     return {
